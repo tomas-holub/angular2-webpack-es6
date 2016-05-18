@@ -1,5 +1,4 @@
 import { Component } from 'angular2/core';
-//import {Http, HTTP_PROVIDERS} from 'angular2/http';
 import {JSONP_PROVIDERS, Jsonp} from 'angular2/http';
 import 'rxjs/add/operator/map';
 
@@ -18,14 +17,12 @@ export class Flickr {
 	}
 
 	constructor(jsonp) {
-		console.log(jsonp);
 		this.jsonp = jsonp;
 		this.images = [];
 		jsonp.get(url)
 			.map(res => res.json())
 			.subscribe(data => {
 				this.images = data.items;
-				console.log(data)
 			});
 	}
 
